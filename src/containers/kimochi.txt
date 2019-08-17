@@ -1,0 +1,11 @@
+onRowDelete: oldData => {
+          return new Promise(resolve => {
+           axios.post('http://localhost:3000/users', newData)
+           .then(function (response) {
+              resolve();
+              const data = [...state.data];
+              data.splice(data.indexOf(oldData), 1);
+              setState({ ...state, data });
+            }, 600);
+          })
+        },
